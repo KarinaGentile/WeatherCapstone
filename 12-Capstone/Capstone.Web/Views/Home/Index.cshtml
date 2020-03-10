@@ -1,4 +1,15 @@
-﻿@{
+﻿@model IList<Park>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<br />
+@foreach (var park in Model)
+{
+    <div>
+        <p>Pic</p>
+        <p>Name</p>
+        <p>Description</p>
+    </div>
+}

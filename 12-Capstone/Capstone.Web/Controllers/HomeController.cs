@@ -12,10 +12,15 @@ namespace Capstone.Web.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            // get parks
+            IList<Park> parks = new List<Park>();
+            return View(parks);
         }
 
-      
+        public IActionResult Detail()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
