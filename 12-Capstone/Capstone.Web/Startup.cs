@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Capstone.Web.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -30,7 +31,13 @@ namespace Capstone.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddTransient<IParkDAO, ParkSqlDAO>(x => new ParkSqlDAO(Configuration.GetConnectionString("NPS")));
+            services.AddTransient<ISurveyDAO, SurveySqlDAO>(x => new SurveySqlDAO(Configuration.GetConnectionString("NPS")));
+            services.AddTransient<IWeatherDAO, WeatherSqlDAO>(x => new WeatherSqlDAO(Configuration.GetConnectionString("NPS")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +54,8 @@ namespace Capstone.Web
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
