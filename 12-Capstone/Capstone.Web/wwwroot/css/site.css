@@ -51,3 +51,11 @@ div.park-home {
     div.park-home div {
         padding: 8px;
     }
+
+.alert {
+    background-color: lightyellow;
+    color: brown;
+    padding: 7px 10px;
+    border-radius: 5px;
+    box-shadow: brown 5px 5px;
+}
