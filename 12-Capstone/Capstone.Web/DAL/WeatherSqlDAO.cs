@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capstone.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,6 +14,11 @@ namespace Capstone.Web.DAL
         public WeatherSqlDAO(string connectionString)
         {
             this.connectionString = connectionString;
+        }
+
+        public List<Weather> GetForecast(string parkCode)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using Capstone.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,5 +9,9 @@ namespace Capstone.Web.DAL
 {
     interface IParkDAO
     {
+        IList<Park> GetParks();
+        
+
+        
     }
 }
