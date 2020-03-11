@@ -1,6 +1,9 @@
 ﻿@model DetailViewModel
 @{
     ViewData["Title"] = "Detail";
+    string temp = TempData["temp"] as string;
+
+    
 }
 
     <div class="park-detail center-block">
@@ -26,10 +29,20 @@
             }
         </div>
         <div>
-            <label for="f">Fahrenheit</label>
-            <input type="radio" name="tempConv" value="f" />
-            <label for="c">Celcius</label>
-            <input type="radio" name="tempConv" value="c" />
+            @*<form asp-controller="Home" asp-action="Detail" method="get">
+                <label asp-for="temp">Fahrenheit</label>
+                <input type="radio" asp-for="temp"/>
+                <label for="c">Celcius</label>
+                <input type="radio" name="temp" value="c" />
+                <input type="submit" value="Change" />
+                <input type="hidden" asp-route-code="@Model.Park.ParkCode" />
+            </form>*@
+            <form method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="f">
+                <input type="submit" value="Fahrenheit"/>
+            </form>
+            <form method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="c">
+                <input type="submit" value="Celcius" />
+            </form>
         </div>
         <br />
         <table class="table table-bordered">

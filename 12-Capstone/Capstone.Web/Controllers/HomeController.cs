@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Capstone.Web.Models;
 using Capstone.Web.DAL;
+using Microsoft.AspNetCore.Http;
 
 namespace Capstone.Web.Controllers
 {
@@ -27,9 +28,43 @@ namespace Capstone.Web.Controllers
             return View(parks);
         }
 
+        [HttpGet]
         public IActionResult Detail(string code)
         {
-            // this will eventually grab the park detail based on the park code passed in
+            if (!HttpContext.Session.Keys.Contains("temp"))
+            {
+                HttpContext.Session.SetString("temp", "f");
+            }
+
+            TempData["temp"] = HttpContext.Session.GetString("temp");
+            
+            Park park = parkDAO.GetParkByParkCode(code);
+            List<Weather> fiveDay = weatherDAO.GetForecast(code);
+
+            DetailViewModel vm = new DetailViewModel();
+            vm.FiveDay = fiveDay;
+            vm.forecasts = new List<Forecast>();
+
+
+            vm.Park = park;
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult Detail(string code, string temp)
+        {
+            if (!HttpContext.Session.Keys.Contains("temp"))
+            {
+                HttpContext.Session.SetString("temp", "f");
+            }
+
+            if (temp != HttpContext.Session.GetString("temp"))
+            {
+                HttpContext.Session.SetString("temp", temp);
+            }
+
+            TempData["temp"] = HttpContext.Session.GetString("temp");
+
             Park park = parkDAO.GetParkByParkCode(code);
             List<Weather> fiveDay = weatherDAO.GetForecast(code);
 
