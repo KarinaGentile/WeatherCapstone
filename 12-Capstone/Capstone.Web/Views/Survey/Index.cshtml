@@ -16,7 +16,7 @@
 <br />
 <p>Choose your favorite park, and tell us a little bit about yourself!</p>
 <br />
-<form>
+<form asp-controller="Survey" asp-action="Index" method="post">
     <table class="table">
         <tr>
             <td>Favorite National Park</td>
@@ -30,11 +30,15 @@
         </tr>
         <tr>
             <td>State of Residence</td>
-            <td><input type="text" asp-for="State" /></td>
+            <td><select asp-for="@Model.State" asp-items="@Model.ResidenceState"></select></td>
         </tr>
         <tr>
             <td>Activity Level</td>
             <td><select asp-for="@Model.ActivityLevel" asp-items="@Model.PhysicalActivityLevel"></select></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit Survey!"/></td>
         </tr>
     </table>
 </form>
