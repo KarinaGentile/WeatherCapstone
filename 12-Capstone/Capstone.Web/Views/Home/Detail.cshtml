@@ -23,7 +23,8 @@
                         <h3>Today</h3>
                     }
                     <img class="img-rounded" src="~/images/weather/@(Model.FiveDay[i].Forecast).png" />
-                    <p>High: @Model.FiveDay[i].High F</p>
+                    @*<p>High: @Model.FiveDay[i].High F</p>*@
+                    <p>High: @(Model.isFahrenheit? (Model.FiveDay[i].High) : (((Model.FiveDay[i].High) - 32) * (0.56M))) @(Model.isFahrenheit? "F" : "C")</p>
                     <p>Low: @Model.FiveDay[i].Low F</p>
                 </div>
             }
