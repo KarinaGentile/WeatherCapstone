@@ -10,8 +10,8 @@ namespace Capstone.Web.DAL
     public interface IParkDAO
     {
         IList<Park> GetParks();
-        
 
+        Park GetParkByParkCode(string parkCode);
         
     }
 }
