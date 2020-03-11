@@ -62,11 +62,6 @@ namespace Capstone.Web.Models
 
 
         }
-        public int CelsiusConversion(decimal temp)
-        {
-            decimal tempInCelsius = ((temp - 32) * (decimal)(.56));
-            return (int)tempInCelsius;
-        }
 
     }
 }
