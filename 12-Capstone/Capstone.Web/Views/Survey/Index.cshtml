@@ -17,24 +17,24 @@
 <p>Choose your favorite park, and tell us a little bit about yourself!</p>
 <br />
 <form>
-    <table>
+    <table class="table">
         <tr>
             <td>Favorite National Park</td>
             <td>
-                <select></select>
+                <select asp-for="@Model.FavoriteParkSelection" asp-items="@Model.FavoritePark"></select>
             </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td>Your Email</td>
+            <td><input type="email" asp-for="EmailAddress" /></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td>State of Residence</td>
+            <td><input type="text" asp-for="State" /></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td>Activity Level</td>
+            <td><select asp-for="@Model.ActivityLevel" asp-items="@Model.PhysicalActivityLevel"></select></td>
         </tr>
     </table>
 </form>
