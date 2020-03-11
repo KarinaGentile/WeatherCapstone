@@ -42,11 +42,12 @@ div.park-home {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
     div.park-home img {
         max-width: 100%;
+        min-width: 300px;
     }
 
     div.park-home div {
