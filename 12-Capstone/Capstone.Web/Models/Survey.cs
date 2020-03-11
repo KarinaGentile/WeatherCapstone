@@ -43,7 +43,7 @@ namespace Capstone.Web.Models
                 };
             }
         }
-        public static List<SelectListItem> FavoritePark
+        public List<SelectListItem> FavoritePark
         {
             get
             {

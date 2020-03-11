@@ -1,7 +1,40 @@
-﻿
+﻿@model Survey
+
 @{
     ViewData["Title"] = "Index";
+    string msg = TempData["Message"] as string;
 }
 
-<h2>Index</h2>
+@{
+    if (!string.IsNullOrEmpty(msg))
+    {
+        <p class="alert alert-dismissable alert-info">@msg</p>
+    }
+}
 
+<h2>Daily Survey</h2>
+<br />
+<p>Choose your favorite park, and tell us a little bit about yourself!</p>
+<br />
+<form>
+    <table>
+        <tr>
+            <td>Favorite National Park</td>
+            <td>
+                <select></select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
