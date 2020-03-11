@@ -67,7 +67,7 @@ namespace Capstone.Web.DAL
                             ParkCode = Convert.ToString(reader["parkCode"]),
                             EmailAddress = Convert.ToString(reader["email"]),
                             State = Convert.ToString(reader["state"]),
-                            ActivityLevel = Convert.ToString(reader["activityLevel"]),
+                            ActivityLevel = Convert.ToString(reader["activityLevel"]),  
 
                         };
                         int rowsAffected = cmd.ExecuteNonQuery();
