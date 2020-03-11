@@ -26,31 +26,21 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM WEATHER", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM WEATHER JOIN PARK ON park.parkCode = weather.parkCode WHERE park.parkCode = @parkcode", conn);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
                         Weather w = new Weather()
                         {
-                            Name = Convert.ToString(reader["parkName"]),
+                            ParkName = Convert.ToString(reader["parkName"]),
                             ParkCode = Convert.ToString(reader["parkCode"]),
-                            State = Convert.ToString(reader["state"]),
-                            Description = Convert.ToString(reader["parkDescription"]),
-                            Acreage = Convert.ToInt32(reader["acreage"]),
-                            Elevation = Convert.ToInt32(reader["elevationInFeet"]),
-                            EntryFee = Convert.ToInt32(reader["entryfee"]),
-                            AnnualVisitorCount = Convert.ToInt32(reader["annualVisitorCount"]),
-                            Climate = Convert.ToString(reader["climate"]),
-                            InspirationalQuote = Convert.ToString(reader["inspirationalQuote"]),
-                            InspirationQuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]),
-                            MilesOfTrail = Convert.ToDecimal(reader["milesOfTrail"]),
-                            NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]),
-                            NumberOfCampsites = Convert.ToInt32(reader["numberOfCampsites"]),
-                            YearFounded = Convert.ToInt32(reader["yearFounded"])
-
+                            FiveDayForecast = Convert.ToDecimal(reader["fiveDayForecastValue"]),
+                            Low = Convert.ToDecimal(reader["low"]),
+                            High = Convert.ToDecimal(reader["high"]),
+                            Forecast = Convert.ToString(reader["forecast"]),
 
                         };
-                        listOfParks.Add(p);
+                        forecast.Add(w);
                     }
                 }
             }
@@ -59,8 +49,10 @@ namespace Capstone.Web.DAL
 
                 throw;
             }
-            return listOfParks;
+
+            return forecast;
         }
-    }
+
     }
 }
+
