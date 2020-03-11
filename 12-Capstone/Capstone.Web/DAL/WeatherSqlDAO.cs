@@ -27,6 +27,7 @@ namespace Capstone.Web.DAL
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand("SELECT * FROM WEATHER JOIN PARK ON park.parkCode = weather.parkCode WHERE park.parkCode = @parkcode", conn);
+                    cmd.Parameters.AddWithValue("@parkcode", parkCode);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {

@@ -75,4 +75,11 @@ div.park-detail img {
     min-width: 80%;
 }
 
-
+div.detail-weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+div.detail-weather img{
+    max-width: 100px;
+}

@@ -15,6 +15,20 @@ namespace Capstone.Web.Models
         public decimal High { get; set; }
         public string Forecast { get; set; }
 
+        //private string _forecast;
+
+        //public string Forecast
+        //{
+        //    get { return _forecast; }
+        //    set 
+        //    {
+        //        if (value == "partly cloudy")
+        //        {
+        //            _forecast = "partlyCloudy";
+        //        }
+        //        _forecast = value; 
+        //    }
+        //}
 
 
         public string Recommendation()

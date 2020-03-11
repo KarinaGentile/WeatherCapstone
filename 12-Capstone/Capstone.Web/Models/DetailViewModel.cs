@@ -12,6 +12,9 @@ namespace Capstone.Web.Models
         public Forecast Forecast { get; set; }
 
         public Weather Weather { get ; set; }
+
+        public IList<Weather> FiveDay { get; set; }
+
         public IList<Forecast> forecasts { get; set; }
 
         public decimal Low { get; set; }
