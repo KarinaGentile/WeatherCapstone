@@ -14,7 +14,8 @@ namespace Capstone.Web.Models
         public decimal Low { get; set; }
         public decimal High { get; set; }
         public string Forecast { get; set; }
-
+        public string Id { get; set; }
+        public bool IsFahrenheit { get; set; }
 
         public int CelsiusConversion(decimal temp)
         {
@@ -26,20 +27,16 @@ namespace Capstone.Web.Models
         {
             internal IWeatherDAO dao;
 
-            internal void GetFiveDay(IWeatherDAO dao, string id)
-            {
-                this.dao = dao;
-                this.Id = id;
-                fiveDayForecast = dao.GetForecast(id);         
-            }
-
+            //internal void GetFiveDay(IWeatherDAO dao, string id)
+            //{
+            //    this.dao = dao;
+            //    this.Id = id;
+            //    fiveDayForecast = dao.GetForecast(id);         
+            //}
 
             List<Weather> fiveDayForecast;
 
-            public string Id { get; set; }
-            public string ParkName { get; set; }
 
-            public bool IsFahrenheit { get; set; }
 
             public List<Weather> GetForecast(string id)
             {

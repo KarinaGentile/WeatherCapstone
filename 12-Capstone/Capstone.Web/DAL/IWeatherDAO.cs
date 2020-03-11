@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    interface IWeatherDAO
+    public interface IWeatherDAO
     {
         List<Weather> GetForecast(string parkCode);
     }
