@@ -30,8 +30,8 @@ namespace Capstone.Web.Controllers
         public IActionResult Detail(string code)
         {
             // this will eventually grab the park detail based on the park code passed in
-            
-            return View();
+            Park park = parkDAO.GetParkByParkCode(code);
+            return View(park);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

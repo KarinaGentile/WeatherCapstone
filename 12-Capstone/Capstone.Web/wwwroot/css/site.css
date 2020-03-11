@@ -65,3 +65,12 @@ div.park-home {
 .survey-form span {
     color: red;
 }
+
+div.park-detail {
+    max-width: 80%;
+}
+
+div.park-detail img {
+    max-width: 100%;
+    min-width: 80%;
+}

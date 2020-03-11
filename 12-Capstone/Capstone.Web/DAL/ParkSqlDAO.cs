@@ -25,10 +25,12 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "";
+                    string sql =
+                        @"select * from park
+                        where parkCode = @parkcode";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    //params
+                    cmd.Parameters.AddWithValue("@parkcode", parkCode);
 
                     SqlDataReader rdr = cmd.ExecuteReader();
 
