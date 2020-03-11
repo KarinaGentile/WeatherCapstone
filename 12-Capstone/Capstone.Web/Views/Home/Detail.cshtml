@@ -22,13 +22,13 @@
                     {
                         <h3>Today</h3>
                     }
-                    <img src="~/images/weather/@(Model.FiveDay[i].Forecast).png" />
+                    <img class="img-rounded" src="~/images/weather/@(Model.FiveDay[i].Forecast).png" />
                     <p>High: @Model.FiveDay[i].High F</p>
                     <p>Low: @Model.FiveDay[i].Low F</p>
                 </div>
             }
         </div>
-        <div>
+        <div class="detail-buttons">
             @*<form asp-controller="Home" asp-action="Detail" method="get">
                 <label asp-for="temp">Fahrenheit</label>
                 <input type="radio" asp-for="temp"/>

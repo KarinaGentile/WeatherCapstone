@@ -70,16 +70,24 @@ div.park-detail {
     max-width: 80%;
 }
 
-div.park-detail img {
-    max-width: 100%;
-    min-width: 80%;
-}
+    div.park-detail img {
+        max-width: 100%;
+        min-width: 80%;
+    }
 
 div.detail-weather {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    text-align: center;
 }
-div.detail-weather img{
-    max-width: 100px;
+
+    div.detail-weather img {
+        max-width: 100px;
+        margin-bottom: 8px;
+    }
+
+div.detail-buttons {
+    display: flex;
+    justify-content: left;
 }
