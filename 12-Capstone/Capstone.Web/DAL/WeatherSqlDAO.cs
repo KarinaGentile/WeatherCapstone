@@ -30,16 +30,7 @@ namespace Capstone.Web.DAL
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        Weather w = new Weather()
-                        {
-                            ParkName = Convert.ToString(reader["parkName"]),
-                            ParkCode = Convert.ToString(reader["parkCode"]),
-                            FiveDayForecastValue = Convert.ToInt32(reader["fiveDayForecastValue"]),
-                            Low = Convert.ToDecimal(reader["low"]),
-                            High = Convert.ToDecimal(reader["high"]),
-                            Forecast = Convert.ToString(reader["forecast"]),
-
-                        };
+                        Weather w = RowToWeather(reader);
                         forecast.Add(w);
                     }
                 }
@@ -53,6 +44,19 @@ namespace Capstone.Web.DAL
             return forecast;
         }
 
+        private Weather RowToWeather(SqlDataReader reader)
+        {
+            return new Weather()
+            {
+                ParkName = Convert.ToString(reader["parkName"]),
+                ParkCode = Convert.ToString(reader["parkCode"]),
+                FiveDayForecastValue = Convert.ToInt32(reader["fiveDayForecastValue"]),
+                Low = Convert.ToDecimal(reader["low"]),
+                High = Convert.ToDecimal(reader["high"]),
+                Forecast = Convert.ToString(reader["forecast"]),
+
+            };
+        }
     }
 }
 
