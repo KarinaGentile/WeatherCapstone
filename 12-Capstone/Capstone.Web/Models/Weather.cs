@@ -16,11 +16,6 @@ namespace Capstone.Web.Models
         public string Forecast { get; set; }
 
 
-        public int CelsiusConversion(decimal temp)
-        {
-            decimal tempInCelsius = ((temp - 32) * (decimal)(.56));
-            return (int)tempInCelsius;
-        }
 
         public string Recommendation()
         {
