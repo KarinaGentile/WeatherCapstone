@@ -10,6 +10,7 @@ namespace Capstone.Web.Models
     {
         public string Id { get; set; }
         public bool IsFahrenheit { get; set; }
+        public string ParkName { get; set; }
 
             public IWeatherDAO dao;
 
