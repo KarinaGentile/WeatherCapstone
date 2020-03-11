@@ -31,7 +31,10 @@ namespace Capstone.Web.Controllers
         {
             // this will eventually grab the park detail based on the park code passed in
             Park park = parkDAO.GetParkByParkCode(code);
-            return View(park);
+            
+            DetailViewModel vm = new DetailViewModel();
+            vm.Park = park;
+            return View(vm);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,15 +1,15 @@
-﻿@model Park
+﻿@model DetailViewModel
 @{
     ViewData["Title"] = "Detail";
 }
 
 <div class="park-detail center-block">
     <br />
-    <img class="center-block" src="~/images/parks/@(Model.ParkCode).jpg"/>@*Pic*@
+    <img class="center-block" src="~/images/parks/@(Model.Park.ParkCode).jpg"/>@*Pic*@
     <br />
-    <h2>@Model.Name</h2>
+    <h2>@Model.Park.Name</h2>
     <br />
-    <p>@Model.Description</p>
+    <p>@Model.Park.Description</p>
     <br />
     <h1>Weather TBD</h1>
     <br />
@@ -18,51 +18,51 @@
         <tbody>
             <tr>
                 <td>State</td>
-                <td>@Model.State</td>
+                <td>@Model.Park.State</td>
             </tr>
             <tr>
                 <td>Entry Fee</td>
-                <td>@($"{Model.EntryFee:C}")</td>
+                <td>@($"{Model.Park.EntryFee:C}")</td>
             </tr>
             <tr>
                 <td>Miles of Trail</td>
-                <td>@Model.MilesOfTrail</td>
+                <td>@Model.Park.MilesOfTrail</td>
             </tr>
             <tr>
                 <td>Number of Campsites</td>
-                <td>@Model.NumberOfCampsites</td>
+                <td>@Model.Park.NumberOfCampsites</td>
             </tr>
             <tr>
                 <td>Climate</td>
-                <td>@Model.Climate</td>
+                <td>@Model.Park.Climate</td>
             </tr>
             <tr>
                 <td>Annual Visitor Count</td>
-                <td>@Model.AnnualVisitorCount</td>
+                <td>@Model.Park.AnnualVisitorCount</td>
             </tr>
             <tr>
                 <td>Year Founded</td>
-                <td>@Model.YearFounded</td>
+                <td>@Model.Park.YearFounded</td>
             </tr>
             <tr>
                 <td>Acreage</td>
-                <td>@Model.Acreage</td>
+                <td>@Model.Park.Acreage</td>
             </tr>
             <tr>
                 <td>Elevation</td>
-                <td>@Model.Elevation</td>
+                <td>@Model.Park.Elevation</td>
             </tr>
             <tr>
                 <td>Number of Animal Species</td>
-                <td>@Model.NumberOfAnimalSpecies</td>
+                <td>@Model.Park.NumberOfAnimalSpecies</td>
             </tr>
             <tr>
                 <td>Inspirational Quote</td>
-                <td>@Model.InspirationalQuote</td>
+                <td>@Model.Park.InspirationalQuote</td>
             </tr>
             <tr>
                 <td>Quote Source</td>
-                <td>@Model.InspirationQuoteSource</td>
+                <td>@Model.Park.InspirationQuoteSource</td>
             </tr>
         </tbody>
     </table>
