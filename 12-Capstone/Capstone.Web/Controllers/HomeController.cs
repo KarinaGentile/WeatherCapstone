@@ -17,9 +17,28 @@ namespace Capstone.Web.Controllers
             return View(parks);
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(string code)
         {
-            return View();
+            // this will eventually grab the park detail based on the park code passed in
+            Park dummyPark = new Park()
+            {
+                Name = "CVNP",
+                Description = @"lorem ipsum ytgewlifahuefhw eufhwuagyefiuwfauewhfaiuzew efgywiahuehfwuhaeowf fehwufhau ffehwuifa fehwufiaejigjare",
+                ParkCode = "CVNP",
+                State = "OH",
+                Acreage = 10,
+                Elevation = 100,
+                MilesOfTrail = 1.0M,
+                NumberOfCampsites = 1000,
+                Climate = "Ohio-y",
+                YearFounded = 1776,
+                AnnualVisitorCount = 10000,
+                InspirationalQuote = "Never don't give up.",
+                InspirationQuoteSource = "Anonymous",
+                EntryFee = 0,
+                NumberOfAnimalSpecies = 5
+            };
+            return View(dummyPark);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

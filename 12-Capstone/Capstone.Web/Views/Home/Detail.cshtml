@@ -3,5 +3,68 @@
     ViewData["Title"] = "Detail";
 }
 
-<h2>Detail</h2>
+<div>
+    <br />
+    <img src="~/images/parks/@(Model.ParkCode).jpg"/>@*Pic*@
+    <br />
+    <h2>@Model.Name</h2>
+    <br />
+    <p>@Model.Description</p>
+    <br />
+    <h1>Weather TBD</h1>
+    <br />
+    <table class="table table-bordered">
+        
+        <tbody>
+            <tr>
+                <td>State</td>
+                <td>@Model.State</td>
+            </tr>
+            <tr>
+                <td>Entry Fee</td>
+                <td>@($"{Model.EntryFee:C}")</td>
+            </tr>
+            <tr>
+                <td>Miles of Trail</td>
+                <td>@Model.MilesOfTrail</td>
+            </tr>
+            <tr>
+                <td>Number of Campsites</td>
+                <td>@Model.NumberOfCampsites</td>
+            </tr>
+            <tr>
+                <td>Climate</td>
+                <td>@Model.Climate</td>
+            </tr>
+            <tr>
+                <td>Annual Visitor Count</td>
+                <td>@Model.AnnualVisitorCount</td>
+            </tr>
+            <tr>
+                <td>Year Founded</td>
+                <td>@Model.YearFounded</td>
+            </tr>
+            <tr>
+                <td>Acreage</td>
+                <td>@Model.Acreage</td>
+            </tr>
+            <tr>
+                <td>Elevation</td>
+                <td>@Model.Elevation</td>
+            </tr>
+            <tr>
+                <td>Number of Animal Species</td>
+                <td>@Model.NumberOfAnimalSpecies</td>
+            </tr>
+            <tr>
+                <td>Inspirational Quote</td>
+                <td>@Model.InspirationalQuote</td>
+            </tr>
+            <tr>
+                <td>Quote Source</td>
+                <td>@Model.InspirationQuoteSource</td>
+            </tr>
+        </tbody>
+    </table>
 
+</div>

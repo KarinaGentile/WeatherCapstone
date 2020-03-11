@@ -2,13 +2,13 @@
 
 @{
     ViewData["Title"] = "Home Page";
-    @*Park dummyPark = new Park()
+    Park dummyPark = new Park()
     {
         Name = "CVNP",
         Description = @"lorem ipsum ytgewlifahuefhw eufhwuagyefiuwfauewhfaiuzew efgywiahuehfwuhaeowf fehwufhau ffehwuifa fehwufiaejigjare",
         ParkCode = "CVNP"
     };
-    Model.Add(dummyPark);*@
+    Model.Add(dummyPark);
     
 }
 
@@ -19,7 +19,7 @@
     <div class="park-home">
         <div>
             @*Image div*@
-            <img src="~/images/parks/@(park.ParkCode).jpg" />
+            <a asp-controller="Home" asp-action="Detail" asp-route-code="@park.ParkCode"><img src="~/images/parks/@(park.ParkCode).jpg" /></a>
         </div>
         <div>
             @*Name/description div*@
