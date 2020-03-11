@@ -16,35 +16,39 @@
 <br />
 <p>Choose your favorite park, and tell us a little bit about yourself!</p>
 <br />
-<form asp-controller="Survey" asp-action="Index" method="post">
+<form class="survey-form" asp-controller="Survey" asp-action="Index" method="post">
     <table class="table">
         <tr>
             <td>Favorite National Park</td>
             <td>
                 <select asp-for="@Model.FavoriteParkSelection" asp-items="@Model.FavoritePark">
                     <option>--Select a park--</option>
-                </select><span asp-validation-for="FavoritePark" class = "alert"></span>
+                </select><span asp-validation-for="FavoritePark" class="alert"></span>
             </td>
         </tr>
         <tr>
             <td>Your Email</td>
             <td>
                 <input type="email" asp-for="EmailAddress" />
-                <span asp-validation-for="EmailAddress" class = "alert"></span>
+                <span asp-validation-for="EmailAddress" class="alert"></span>
             </td>
         </tr>
         <tr>
             <td>State of Residence</td>
             <td>
-                <select asp-for="@Model.State" asp-items="@Model.ResidenceState"></select>
-                <span asp-validation-for="State" class = "alert"></span>
+                <select asp-for="@Model.State" asp-items="@Model.ResidenceState">
+                    <option>--Select a state--</option>
+                </select>
+                <span asp-validation-for="State" class="alert"></span>
             </td>
         </tr>
         <tr>
             <td>Activity Level</td>
             <td>
-                <select asp-for="@Model.ActivityLevel" asp-items="@Model.PhysicalActivityLevel"></select>
-            <span asp-validation-for="ActivityLevel" class = "alert"></span>
+                <select asp-for="@Model.ActivityLevel" asp-items="@Model.PhysicalActivityLevel">
+                    <option>--Select an activity level--</option>
+                </select>
+                <span asp-validation-for="ActivityLevel" class="alert"></span>
             </td>
         </tr>
         <tr>

@@ -52,10 +52,14 @@ div.park-home {
         padding: 8px;
     }
 
-.alert {
+/*.alert {
     background-color: lightyellow;
     color: brown;
     padding: 7px 10px;
     border-radius: 5px;
     box-shadow: brown 5px 5px;
+}*/
+
+.survey-form span {
+    color:red;
 }
