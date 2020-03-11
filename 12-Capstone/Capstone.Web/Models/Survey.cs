@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,10 +11,23 @@ namespace Capstone.Web.Models
     {
         public int SurveyId { get; set; }
         public string ParkCode { get; set; }
+
+        [Required]
+        [EmailAddress(ErrorMessage ="Please enter a valid email address")]
         public string EmailAddress { get; set; }
+
+        [Required]
+        //drop down
         public string State { get; set; }
+
+        [Required]
+        // drop down
         public string ActivityLevel { get; set; }
+
+        [Required]
+        // drop down
         public string FavoriteParkSelection { get; set; }
+
         public string TopPark { get; set; }
 
         public static List<SelectListItem> PhysicalActivityLevel

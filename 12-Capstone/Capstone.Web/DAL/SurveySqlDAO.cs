@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    public class SurveySqlDAO: ISurveyDAO
+    public class SurveySqlDAO : ISurveyDAO
     {
 
         private string connectionString;
@@ -24,7 +24,6 @@ namespace Capstone.Web.DAL
         public string result;
         public string FindTopPark()
         {
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -42,10 +41,7 @@ namespace Capstone.Web.DAL
                     }
 
                 }
-
                 return result;
-
-
             }
             catch (Exception)
             {
@@ -81,7 +77,6 @@ namespace Capstone.Web.DAL
             }
             catch (Exception)
             {
-
                 throw;
             }
             return true;

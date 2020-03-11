@@ -9,14 +9,22 @@ namespace Capstone.Web.Models
     {
         public string ParkCode { get; set; }
         public string ParkName { get; set; }
-        public decimal FiveDayForecast { get; set; }
+        public int FiveDayForecast { get; set; }
         public decimal Low { get; set; }
         public decimal High { get; set; }
         public string Forecast { get; set; }
 
+
+        public int CelsiusConversion(decimal temp)
+        {
+            decimal tempInCelsius = ((temp - 32) * (decimal)(.56));
+            return (int)tempInCelsius;
+        }
+
+
+
     }
 }
-
 
 
 

@@ -34,7 +34,7 @@ namespace Capstone.Web.DAL
                         {
                             ParkName = Convert.ToString(reader["parkName"]),
                             ParkCode = Convert.ToString(reader["parkCode"]),
-                            FiveDayForecast = Convert.ToDecimal(reader["fiveDayForecastValue"]),
+                            FiveDayForecast = Convert.ToInt32(reader["fiveDayForecastValue"]),
                             Low = Convert.ToDecimal(reader["low"]),
                             High = Convert.ToDecimal(reader["high"]),
                             Forecast = Convert.ToString(reader["forecast"]),
