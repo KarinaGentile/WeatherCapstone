@@ -35,7 +35,7 @@ namespace Capstone.Web.Controllers
             DetailViewModel vm = new DetailViewModel();
 
             //vm.Weather = new List<Forecast>();
-            
+
             vm.Park = park;
             return View(vm);
         }
