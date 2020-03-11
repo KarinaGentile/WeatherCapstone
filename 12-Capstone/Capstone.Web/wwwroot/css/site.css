@@ -35,3 +35,19 @@ body {
         display: none;
     }
 }
+
+
+div.park-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    div.park-home img {
+        max-width: 100%;
+    }
+
+    div.park-home div {
+        padding: 8px;
+    }

@@ -2,14 +2,30 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    @*Park dummyPark = new Park()
+    {
+        Name = "CVNP",
+        Description = @"lorem ipsum ytgewlifahuefhw eufhwuagyefiuwfauewhfaiuzew efgywiahuehfwuhaeowf fehwufhau ffehwuifa fehwufiaejigjare",
+        ParkCode = "CVNP"
+    };
+    Model.Add(dummyPark);*@
+    
 }
 
 <br />
-@foreach (var park in Model)
+@foreach (Park park in Model)
 {
-    <div>
-        <p>Pic</p>
-        <p>Name</p>
-        <p>Description</p>
+    <br />
+    <div class="park-home">
+        <div>
+            @*Image div*@
+            <img src="~/images/parks/@(park.ParkCode).jpg" />
+        </div>
+        <div>
+            @*Name/description div*@
+            <h3 class="h3">@park.Name</h3>
+            <p>@park.Description</p>
+        </div>
     </div>
+    <br />
 }
