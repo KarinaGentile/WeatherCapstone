@@ -37,7 +37,7 @@ namespace Capstone.Web.Controllers
             }
 
             TempData["temp"] = HttpContext.Session.GetString("temp");
-            
+
             Park park = parkDAO.GetParkByParkCode(code);
             List<Weather> fiveDay = weatherDAO.GetForecast(code);
 
@@ -45,9 +45,18 @@ namespace Capstone.Web.Controllers
             vm.FiveDay = fiveDay;
             vm.forecasts = new List<Forecast>();
 
+            if (HttpContext.Session.GetString("temp") == "f")
+            {
+                vm.isFahrenheit = true;
+            }
+            else
+            {
+                vm.isFahrenheit = false;
+            }
 
             vm.Park = park;
             return View(vm);
+
         }
 
         [HttpPost]
@@ -63,15 +72,20 @@ namespace Capstone.Web.Controllers
                 HttpContext.Session.SetString("temp", temp);
             }
 
-            TempData["temp"] = HttpContext.Session.GetString("temp");
-
             Park park = parkDAO.GetParkByParkCode(code);
             List<Weather> fiveDay = weatherDAO.GetForecast(code);
 
             DetailViewModel vm = new DetailViewModel();
             vm.FiveDay = fiveDay;
             vm.forecasts = new List<Forecast>();
-
+            if (HttpContext.Session.GetString("temp") == "f")
+            {
+                vm.isFahrenheit = true;
+            }
+            else
+            {
+                vm.isFahrenheit = false;
+            }
 
             vm.Park = park;
             return View(vm);
@@ -83,8 +97,8 @@ namespace Capstone.Web.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-     
-        }
 
     }
+
+}
 

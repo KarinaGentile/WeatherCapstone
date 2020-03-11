@@ -17,7 +17,6 @@ namespace Capstone.Web.Models
 
         public IList<Forecast> forecasts { get; set; }
 
-        public decimal Low { get; set; }
-        public decimal High { get; set; }
+        public bool isFahrenheit { get; set; }
     }
 }
