@@ -31,10 +31,12 @@ namespace Capstone.Web.Controllers
         {
             // this will eventually grab the park detail based on the park code passed in
             Park park = parkDAO.GetParkByParkCode(code);
-            
+            List<Weather> weathers = weatherDAO.GetForecast(code);
+
             DetailViewModel vm = new DetailViewModel();
 
-            //vm.Weather = new List<Forecast>();
+            vm.forecasts = new List<Forecast>();
+
 
             vm.Park = park;
             return View(vm);
