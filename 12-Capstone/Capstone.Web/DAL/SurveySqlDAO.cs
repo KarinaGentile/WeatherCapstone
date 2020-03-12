@@ -23,36 +23,41 @@ VALUES
 (@parkCode, @emailAddress, @state, @activityLevel);";
         public string SQL_FindTopPark = "SELECT parkName from park JOIN survey_result on park.parkCode = survey_result.parkCode WHERE surveyID > 0 GROUP BY park.parkName ORDER BY COUNT(*) DESC";
 
+//        private string SQL_GetFavoriteParks = @"select count(*), p.parkCode, p.parkName, p.parkDescription from survey_result sr
+//join park p on sr.parkCode = p.parkCode
+//group by p.parkCode, p.parkName, p.parkDescription
+//order by count(*) desc, p.parkName";
+
 
         public string result;
-        public string FindTopPark(List<Park> GetParks)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string SQL = SQL_FindTopPark;
+        //public string FindTopParks()
+        //{
+        //    IList<Park> parks = new List<Park>();
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connectionString))
+        //        {
+        //            conn.Open();
+        //            string SQL = SQL_GetFavoriteParks;
 
-                    SqlCommand cmd = new SqlCommand(SQL, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+        //            SqlCommand cmd = new SqlCommand(SQL, conn);
+        //            SqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        Survey sur = new Survey();
-                        sur.TopPark = Convert.ToString(reader["parkName"]);
-                        result = sur.TopPark;
-                    }
+        //            while (reader.Read())
+        //            {
+                        
+                        
+        //            }
 
-                }
-                return result;
-            }
-            catch (Exception)
-            {
+        //        }
+        //        return result;
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         public bool SaveSurvey(Survey newSurvey)
         {

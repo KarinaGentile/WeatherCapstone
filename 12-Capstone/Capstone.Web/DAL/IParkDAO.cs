@@ -12,6 +12,6 @@ namespace Capstone.Web.DAL
         IList<Park> GetParks();
 
         Park GetParkByParkCode(string parkCode);
-        
+        IList<Park> FindTopParks();
     }
 }

@@ -22,5 +22,6 @@ namespace Capstone.Web.Models
         public string InspirationQuoteSource { get; set; }
         public int EntryFee { get; set; }
         public int NumberOfAnimalSpecies { get; set; }
+        public int NumberOfSurveys { get; set; }
     }
 }

@@ -11,10 +11,12 @@ namespace Capstone.Web.Controllers
     public class SurveyController : Controller
     {
         private ISurveyDAO surveyDAO;
+        private IParkDAO parkDAO;
 
-        public SurveyController(ISurveyDAO survey)
+        public SurveyController(ISurveyDAO survey, IParkDAO park)
         {
             this.surveyDAO = survey;
+            this.parkDAO = park;
         }
 
         [HttpGet]
@@ -47,12 +49,12 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("FavoriteParks");
         }
 
-        public IActionResult FavoriteParks(IList<Park> GetParks)
+        public IActionResult FavoriteParks()
         {
-            List<Park> listOfParks = new List<Park>();
-            surveyDAO.FindTopPark(listOfParks);
+            
+            IList<Park> faveParks = parkDAO.FindTopParks();
 
-            return View();
+            return View(faveParks);
         }
     }
 }
