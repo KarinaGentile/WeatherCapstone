@@ -47,11 +47,11 @@
                 <input type="submit" value="Change" />
                 <input type="hidden" asp-route-code="@Model.Park.ParkCode" />
             </form>*@
-            <form method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="f">
-                <input type="submit" value="Fahrenheit" />
+            <form style="margin-right:8px" method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="f">
+                <input  class="btn btn-block" type="submit" value="Fahrenheit" />
             </form>
             <form method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="c">
-                <input type="submit" value="Celcius" />
+                <input class="btn btn-block" type="submit" value="Celcius" />
             </form>
         </div>
         <br />
