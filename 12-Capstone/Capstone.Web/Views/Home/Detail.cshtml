@@ -24,7 +24,9 @@
                 }
                 <img class="img-rounded" src="~/images/weather/@(Model.FiveDay[i].Forecast).png" />
                 @*<p>High: @Model.FiveDay[i].High F</p>*@
-                <p>High: @(Model.isFahrenheit ? (Model.FiveDay[i].High) : (((Model.FiveDay[i].High) - 32) * (0.56M))) @(Model.isFahrenheit ? "F" : "C")</p>
+                <p>
+                    High: @(Model.isFahrenheit ? (Model.FiveDay[i].High) : (((Model.FiveDay[i].High) - 32) * (0.56M))) @(Model.isFahrenheit ? "F" : "C")
+                </p>
                 <p>
                     Low: @(Model.isFahrenheit ? (Model.FiveDay[i].Low) : (((Model.FiveDay[i].Low) - 32) * (0.56M))) @(Model.isFahrenheit ? "F" : "C")
                 </p>
