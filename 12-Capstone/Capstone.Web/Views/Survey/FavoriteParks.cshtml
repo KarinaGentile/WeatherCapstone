@@ -1,24 +1,33 @@
 ﻿@model IList<Park>
 @{
     ViewData["Title"] = "FavoriteParks";
+    string msg = TempData["Message"] as string;
 }
-    <section class="centeredPanel">
-        <h2>Favorite Parks</h2>
 
-        @foreach (Park park in Model)
-        {
-            <div class="park-home">
+@{
+    if (!string.IsNullOrEmpty(msg))
+    {
+        <p class="alert alert-dismissable alert-info">@msg</p>
+    }
+}
 
-                <div>
-                    @*Image div*@
-                    <a asp-controller="Home" asp-action="Detail" asp-route-code="@park.ParkCode"><img src="~/images/parks/@(park.ParkCode).jpg" /></a>
-                </div>
-                <div>
-                    @*Name/description div*@
-                    <h3 class="h3">@park.Name | @park.NumberOfSurveys <span class="thumbs-up glyphicon glyphicon-thumbs-up"></span></h3>
-                    <p>@park.Description</p>
-                </div>
+<section class="centeredPanel">
+    <h2>Favorite Parks</h2>
+
+    @foreach (Park park in Model)
+    {
+        <div class="park-home">
+
+            <div>
+                @*Image div*@
+                <a asp-controller="Home" asp-action="Detail" asp-route-code="@park.ParkCode"><img src="~/images/parks/@(park.ParkCode).jpg" /></a>
             </div>
-            <br />
-        }
-        </section>
+            <div>
+                @*Name/description div*@
+                <h3 class="h3">@park.Name | @park.NumberOfSurveys <span class="thumbs-up glyphicon glyphicon-thumbs-up"></span></h3>
+                <p>@park.Description</p>
+            </div>
+        </div>
+        <br />
+    }
+</section>
