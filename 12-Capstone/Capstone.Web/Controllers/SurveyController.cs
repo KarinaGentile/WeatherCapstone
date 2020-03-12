@@ -26,7 +26,7 @@ namespace Capstone.Web.Controllers
             return View(survey);
 
         }
-
+        [AutoValidateAntiforgeryToken]
         [HttpPost]
         public IActionResult Index(Survey survey)
         {

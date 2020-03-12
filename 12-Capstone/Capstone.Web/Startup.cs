@@ -35,6 +35,8 @@ namespace Capstone.Web
             services.AddTransient<ISurveyDAO, SurveySqlDAO>(x => new SurveySqlDAO(Configuration.GetConnectionString("NPS")));
             services.AddTransient<IWeatherDAO, WeatherSqlDAO>(x => new WeatherSqlDAO(Configuration.GetConnectionString("NPS")));
 
+            services.AddMvc(options => options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDistributedMemoryCache();
             services.AddSession();

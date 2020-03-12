@@ -58,7 +58,7 @@ namespace Capstone.Web.Controllers
             return View(vm);
 
         }
-
+        [AutoValidateAntiforgeryToken]
         [HttpPost]
         public IActionResult Detail(string code, string temp)
         {
