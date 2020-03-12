@@ -4,6 +4,7 @@ body {
     /*padding-top: 50px;*/
     padding-bottom: 20px;
     background-color: lightgray;
+    background-image: url(../images/PineBackground.jpg);
 }
 
 /* Wrapping element */
@@ -121,6 +122,17 @@ div.detail-buttons {
 }
 
 .thumbs-up {
-    color: deepskyblue;
+    color: forestgreen;
 
+}
+
+section.centeredPanel {
+    clear: both;
+    display: block;
+    width: 90%;
+    vertical-align: top;
+    min-height: 450px;
+    background-color: darkseagreen;
+    border-radius: 7px;
+    margin: 20px auto;
 }

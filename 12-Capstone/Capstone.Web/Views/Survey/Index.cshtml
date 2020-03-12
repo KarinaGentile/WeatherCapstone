@@ -11,7 +11,7 @@
         <p class="alert alert-dismissable alert-info">@msg</p>
     }
 }
-
+<section class="centeredPanel">
 <h2>Daily Survey</h2>
 <br />
 <p>Choose your favorite park, and tell us a little bit about yourself!</p>
@@ -29,7 +29,7 @@
         <tr>
             <td>Your Email</td>
             <td>
-                <input type="email" asp-for="EmailAddress" placeholder="--Enter your email--"/>
+                <input type="email" asp-for="EmailAddress" placeholder="--Enter your email--" />
                 <span asp-validation-for="EmailAddress" class="alert"></span>
             </td>
         </tr>
@@ -57,3 +57,4 @@
         </tr>
     </table>
 </form>
+</section>

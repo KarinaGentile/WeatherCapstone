@@ -5,20 +5,21 @@
     
     
 }
-
-<br />
-@foreach (Park park in Model)
-{
-    <div class="park-home">
-        <div>
-            @*Image div*@
-            <a asp-controller="Home" asp-action="Detail" asp-route-code="@park.ParkCode"><img src="~/images/parks/@(park.ParkCode).jpg" /></a>
-        </div>
-        <div>
-            @*Name/description div*@
-            <h3 class="h3">@park.Name</h3>
-            <p>@park.Description</p>
-        </div>
-    </div>
-    <br />
-}
+    <section class="centeredPanel">
+        <br />
+        @foreach (Park park in Model)
+        {
+            <div class="park-home">
+                <div>
+                    @*Image div*@
+                    <a asp-controller="Home" asp-action="Detail" asp-route-code="@park.ParkCode"><img src="~/images/parks/@(park.ParkCode).jpg" /></a>
+                </div>
+                <div>
+                    @*Name/description div*@
+                    <h3 class="h3">@park.Name</h3>
+                    <p>@park.Description</p>
+                </div>
+            </div>
+            <br />
+        }
+        </section>
