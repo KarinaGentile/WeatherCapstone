@@ -136,3 +136,8 @@ section.centeredPanel {
     border-radius: 7px;
     margin: 20px auto;
 }
+
+footer {
+    font-weight: lighter;
+    color: white;
+}
