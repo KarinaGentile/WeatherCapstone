@@ -22,14 +22,14 @@
             <td>Favorite National Park</td>
             <td>
                 <select asp-for="@Model.FavoriteParkSelection" asp-items="@Model.FavoritePark">
-                    <option>--Select a park--</option>
+                    <option selected disabled>--Select a park--</option>
                 </select><span asp-validation-for="FavoritePark" class="alert"></span>
             </td>
         </tr>
         <tr>
             <td>Your Email</td>
             <td>
-                <input type="email" asp-for="EmailAddress" />
+                <input type="email" asp-for="EmailAddress" placeholder="--Enter your email--"/>
                 <span asp-validation-for="EmailAddress" class="alert"></span>
             </td>
         </tr>
@@ -37,7 +37,7 @@
             <td>State of Residence</td>
             <td>
                 <select asp-for="@Model.State" asp-items="@Model.ResidenceState">
-                    <option>--Select a state--</option>
+                    <option selected disabled>--Select a state--</option>
                 </select>
                 <span asp-validation-for="State" class="alert"></span>
             </td>
@@ -46,7 +46,7 @@
             <td>Activity Level</td>
             <td>
                 <select asp-for="@Model.ActivityLevel" asp-items="@Model.PhysicalActivityLevel">
-                    <option>--Select an activity level--</option>
+                    <option selected disabled>--Select an activity level--</option>
                 </select>
                 <span asp-validation-for="ActivityLevel" class="alert"></span>
             </td>
