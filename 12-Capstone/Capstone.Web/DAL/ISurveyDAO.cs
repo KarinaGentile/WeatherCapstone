@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    interface ISurveyDAO
+    public interface ISurveyDAO
     {
         bool SaveSurvey(Survey newSurvey);
         string FindTopPark();

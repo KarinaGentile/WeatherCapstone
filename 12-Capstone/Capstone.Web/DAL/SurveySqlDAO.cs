@@ -57,22 +57,25 @@ namespace Capstone.Web.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
+                    string SQL = SQL_InsertSurvey;
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM SURVEY_RESULT", conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Survey s = new Survey()
-                        {
-                            ParkCode = Convert.ToString(reader["parkCode"]),
-                            EmailAddress = Convert.ToString(reader["email"]),
-                            State = Convert.ToString(reader["state"]),
-                            ActivityLevel = Convert.ToString(reader["activityLevel"]),  
+                    SqlCommand cmd = new SqlCommand(SQL, conn);
+                    //SqlDataReader reader = cmd.ExecuteReader();
+                    //while (reader.Read())
+                    //{
+                    //    Survey s = new Survey()
+                    //    {
+                    //        ParkCode = Convert.ToString(reader["parkCode"]),
+                    //        EmailAddress = Convert.ToString(reader["email"]),
+                    //        State = Convert.ToString(reader["state"]),
+                    //        ActivityLevel = Convert.ToString(reader["activityLevel"]),  
 
-                        };
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        return rowsAffected > 0;
-                    }
+                    //    };
+                    //    int rowsAffected = cmd.ExecuteNonQuery();
+                    //    return rowsAffected > 0;
+                    //}
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
                 }
             }
             catch (Exception)
