@@ -78,13 +78,19 @@ div.park-detail {
 div.detail-weather {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     text-align: center;
 }
 
     div.detail-weather img {
+        flex-basis: 100px;
         max-width: 100px;
         margin-bottom: 8px;
+    }
+
+    div.detail-weather p.recommendation {
+        max-width: 100px;
+        text-align: center;
     }
 
 div.detail-buttons {
