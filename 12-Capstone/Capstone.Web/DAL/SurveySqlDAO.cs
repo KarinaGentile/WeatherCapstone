@@ -17,7 +17,10 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
-        public string SQL_InsertSurvey = "INSERT INTO survey_result VALUES (@parkCode, @emailAddress, @state, @activityLevel);";
+        public string SQL_InsertSurvey = @"INSERT INTO survey_result
+(parkCode, emailAddress, state, activityLevel)
+VALUES
+(@parkCode, @emailAddress, @state, @activityLevel);";
         public string SQL_FindTopPark = "SELECT TOP 1 parkName from park JOIN survey_result on park.parkCode = survey_result.parkCode GROUP BY park.parkName ORDER BY COUNT(*) DESC;";
 
 
@@ -60,6 +63,10 @@ namespace Capstone.Web.DAL
                     string SQL = SQL_InsertSurvey;
 
                     SqlCommand cmd = new SqlCommand(SQL, conn);
+                    cmd.Parameters.AddWithValue("@parkCode", newSurvey.FavoriteParkSelection);
+                    cmd.Parameters.AddWithValue("@emailAddress", newSurvey.EmailAddress);
+                    cmd.Parameters.AddWithValue("@state", newSurvey.State);
+                    cmd.Parameters.AddWithValue("@activityLevel", newSurvey.ActivityLevel);
                     //SqlDataReader reader = cmd.ExecuteReader();
                     //while (reader.Read())
                     //{
@@ -80,9 +87,9 @@ namespace Capstone.Web.DAL
             }
             catch (Exception)
             {
-                throw;
+                return false;
             }
-            return true;
+            
         }
     }
 }
