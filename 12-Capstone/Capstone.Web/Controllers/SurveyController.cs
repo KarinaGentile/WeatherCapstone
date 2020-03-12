@@ -50,7 +50,7 @@ namespace Capstone.Web.Controllers
         public IActionResult FavoriteParks(IList<Park> GetParks)
         {
             List<Park> listOfParks = new List<Park>();
-            surveyDAO.FindTopPark();
+            surveyDAO.FindTopPark(listOfParks);
 
             return View();
         }

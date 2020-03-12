@@ -9,6 +9,6 @@ namespace Capstone.Web.DAL
     public interface ISurveyDAO
     {
         bool SaveSurvey(Survey newSurvey);
-        string FindTopPark();
+        string FindTopPark(List<Park> GetParks);
     }
 }

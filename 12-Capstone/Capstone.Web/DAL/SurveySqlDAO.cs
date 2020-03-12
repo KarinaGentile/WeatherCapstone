@@ -21,11 +21,11 @@ namespace Capstone.Web.DAL
 (parkCode, emailAddress, state, activityLevel)
 VALUES
 (@parkCode, @emailAddress, @state, @activityLevel);";
-        public string SQL_FindTopPark = "SELECT TOP 1 parkName from park JOIN survey_result on park.parkCode = survey_result.parkCode GROUP BY park.parkName ORDER BY COUNT(*) DESC;";
+        public string SQL_FindTopPark = "SELECT parkName from park JOIN survey_result on park.parkCode = survey_result.parkCode WHERE surveyID > 0 GROUP BY park.parkName ORDER BY COUNT(*) DESC";
 
 
         public string result;
-        public string FindTopPark(List<Park> listOfParks)
+        public string FindTopPark(List<Park> GetParks)
         {
             try
             {
@@ -78,11 +78,6 @@ VALUES
                 return false;
             }
             
-        }
-
-        public string FindTopPark()
-        {
-            throw new NotImplementedException();
         }
     }
 }
