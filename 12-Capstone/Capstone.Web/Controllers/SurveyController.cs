@@ -47,8 +47,11 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("FavoriteParks");
         }
 
-        public IActionResult FavoriteParks()
+        public IActionResult FavoriteParks(IList<Park> GetParks)
         {
+            List<Park> listOfParks = new List<Park>();
+            surveyDAO.FindTopPark();
+
             return View();
         }
     }

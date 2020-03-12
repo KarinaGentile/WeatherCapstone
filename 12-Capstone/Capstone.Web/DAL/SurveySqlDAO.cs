@@ -25,15 +25,16 @@ VALUES
 
 
         public string result;
-        public string FindTopPark()
+        public string FindTopPark(List<Park> listOfParks)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
+                    string SQL = SQL_FindTopPark;
 
-                    SqlCommand cmd = new SqlCommand(SQL_FindTopPark, conn);
+                    SqlCommand cmd = new SqlCommand(SQL, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -67,20 +68,7 @@ VALUES
                     cmd.Parameters.AddWithValue("@emailAddress", newSurvey.EmailAddress);
                     cmd.Parameters.AddWithValue("@state", newSurvey.State);
                     cmd.Parameters.AddWithValue("@activityLevel", newSurvey.ActivityLevel);
-                    //SqlDataReader reader = cmd.ExecuteReader();
-                    //while (reader.Read())
-                    //{
-                    //    Survey s = new Survey()
-                    //    {
-                    //        ParkCode = Convert.ToString(reader["parkCode"]),
-                    //        EmailAddress = Convert.ToString(reader["email"]),
-                    //        State = Convert.ToString(reader["state"]),
-                    //        ActivityLevel = Convert.ToString(reader["activityLevel"]),  
 
-                    //    };
-                    //    int rowsAffected = cmd.ExecuteNonQuery();
-                    //    return rowsAffected > 0;
-                    //}
                     int rowsAffected = cmd.ExecuteNonQuery();
                     return rowsAffected > 0;
                 }
@@ -90,6 +78,11 @@ VALUES
                 return false;
             }
             
+        }
+
+        public string FindTopPark()
+        {
+            throw new NotImplementedException();
         }
     }
 }
