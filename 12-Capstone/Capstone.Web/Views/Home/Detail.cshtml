@@ -3,43 +3,47 @@
     ViewData["Title"] = "Detail";
     string temp = TempData["temp"] as string;
 
-    
+
 }
 
-    <div class="park-detail center-block">
-        <br />
-        <img class="center-block" src="~/images/parks/@(Model.Park.ParkCode).jpg" />@*Pic*@
-        <br />
-        <h2>@Model.Park.Name</h2>
-        <br />
-        <p>@Model.Park.Description</p>
-        <br />
-        <h3>Today</h3>
-        <div class="detail-weather">
-            @for (int i = 0; i < 5; i++)
-            {
-                <div>
-                    @*@if (i == 0)
+<div class="park-detail center-block">
+    <br />
+    <img class="center-block" src="~/images/parks/@(Model.Park.ParkCode).jpg" />@*Pic*@
+    <br />
+    <h2>@Model.Park.Name</h2>
+    <br />
+    <p>@Model.Park.Description</p>
+    <br />
+    <h3>Today</h3>
+    <div class="detail-weather">
+        @for (int i = 0; i < 5; i++)
+        {
+            <div class="weather-container">
+                @*@if (i == 0)
                     {
                         <h3>Today</h3>
                     }*@
-                    <img class="img-rounded" src="~/images/weather/@(Model.FiveDay[i].Forecast).png" />
-                    @*<p>High: @Model.FiveDay[i].High F</p>*@
-                    <p>
+                <img class="img-rounded" src="~/images/weather/@(Model.FiveDay[i].Forecast).png" />
+                @*<p>High: @Model.FiveDay[i].High F</p>*@
+                <div class="temps-holder">
+                    <p class="temp-high">
                         @*High: @(Model.isFahrenheit ? (Model.FiveDay[i].High) : (((Model.FiveDay[i].High) - 32) * (0.56M))) @(Model.isFahrenheit ? "F" : "C")*@
-                        High: 
-                        @(Model.isFahrenheit ? $"{(Model.FiveDay[i].High):N1}" : ( $"{( ( ( Model.FiveDay[i].High ) - 32 ) * ( 0.56M ) ):N1}" )      ) 
+                        High:
+                        @(Model.isFahrenheit ? $"{(Model.FiveDay[i].High):N1}" : ($"{(((Model.FiveDay[i].High) - 32) * (0.56M)):N1}"))
                         @(Model.isFahrenheit ? "F" : "C")
                     </p>
-                    <p>
+                    <p class="temp-low">
                         Low: @(Model.isFahrenheit ? $"{(Model.FiveDay[i].Low):N1}" : $"{(((Model.FiveDay[i].Low) - 32) * (0.56M)):N1}") @(Model.isFahrenheit ? "F" : "C")
                     </p>
-                    <p class="recommendation">@Model.FiveDay[i].Recommendation()</p>
                 </div>
-            }
-        </div>
-        <div class="detail-buttons">
-            @*<form asp-controller="Home" asp-action="Detail" method="get">
+                <p class="recommendation">
+                    @Model.FiveDay[i].Recommendation()
+                </p>
+            </div>
+        }
+    </div>
+    <div class="detail-buttons">
+        @*<form asp-controller="Home" asp-action="Detail" method="get">
                 <label asp-for="temp">Fahrenheit</label>
                 <input type="radio" asp-for="temp"/>
                 <label for="c">Celcius</label>
@@ -47,66 +51,66 @@
                 <input type="submit" value="Change" />
                 <input type="hidden" asp-route-code="@Model.Park.ParkCode" />
             </form>*@
-            <form style="margin-right:8px" method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="f">
-                <input  class="btn btn-block" type="submit" value="Fahrenheit" />
-            </form>
-            <form method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="c">
-                <input class="btn btn-block" type="submit" value="Celcius" />
-            </form>
-        </div>
-        <br />
-        <table class="table table-bordered">
-
-            <tbody>
-                <tr>
-                    <td>State</td>
-                    <td>@Model.Park.State</td>
-                </tr>
-                <tr>
-                    <td>Entry Fee</td>
-                    <td>@($"{Model.Park.EntryFee:C}")</td>
-                </tr>
-                <tr>
-                    <td>Miles of Trail</td>
-                    <td>@Model.Park.MilesOfTrail</td>
-                </tr>
-                <tr>
-                    <td>Number of Campsites</td>
-                    <td>@Model.Park.NumberOfCampsites</td>
-                </tr>
-                <tr>
-                    <td>Climate</td>
-                    <td>@Model.Park.Climate</td>
-                </tr>
-                <tr>
-                    <td>Annual Visitor Count</td>
-                    <td>@Model.Park.AnnualVisitorCount</td>
-                </tr>
-                <tr>
-                    <td>Year Founded</td>
-                    <td>@Model.Park.YearFounded</td>
-                </tr>
-                <tr>
-                    <td>Acreage</td>
-                    <td>@Model.Park.Acreage</td>
-                </tr>
-                <tr>
-                    <td>Elevation</td>
-                    <td>@Model.Park.Elevation</td>
-                </tr>
-                <tr>
-                    <td>Number of Animal Species</td>
-                    <td>@Model.Park.NumberOfAnimalSpecies</td>
-                </tr>
-                <tr>
-                    <td>Inspirational Quote</td>
-                    <td>@Model.Park.InspirationalQuote</td>
-                </tr>
-                <tr>
-                    <td>Quote Source</td>
-                    <td>@Model.Park.InspirationQuoteSource</td>
-                </tr>
-            </tbody>
-        </table>
-
+        <form style="margin-right:8px" method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="f">
+            <input class="btn btn-block" type="submit" value="Fahrenheit" />
+        </form>
+        <form method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="c">
+            <input class="btn btn-block" type="submit" value="Celcius" />
+        </form>
     </div>
+    <br />
+    <table class="table table-bordered">
+
+        <tbody>
+            <tr>
+                <td>State</td>
+                <td>@Model.Park.State</td>
+            </tr>
+            <tr>
+                <td>Entry Fee</td>
+                <td>@($"{Model.Park.EntryFee:C}")</td>
+            </tr>
+            <tr>
+                <td>Miles of Trail</td>
+                <td>@Model.Park.MilesOfTrail</td>
+            </tr>
+            <tr>
+                <td>Number of Campsites</td>
+                <td>@Model.Park.NumberOfCampsites</td>
+            </tr>
+            <tr>
+                <td>Climate</td>
+                <td>@Model.Park.Climate</td>
+            </tr>
+            <tr>
+                <td>Annual Visitor Count</td>
+                <td>@Model.Park.AnnualVisitorCount</td>
+            </tr>
+            <tr>
+                <td>Year Founded</td>
+                <td>@Model.Park.YearFounded</td>
+            </tr>
+            <tr>
+                <td>Acreage</td>
+                <td>@Model.Park.Acreage</td>
+            </tr>
+            <tr>
+                <td>Elevation</td>
+                <td>@Model.Park.Elevation</td>
+            </tr>
+            <tr>
+                <td>Number of Animal Species</td>
+                <td>@Model.Park.NumberOfAnimalSpecies</td>
+            </tr>
+            <tr>
+                <td>Inspirational Quote</td>
+                <td>@Model.Park.InspirationalQuote</td>
+            </tr>
+            <tr>
+                <td>Quote Source</td>
+                <td>@Model.Park.InspirationQuoteSource</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -80,6 +80,7 @@ div.detail-weather {
     justify-content: space-between;
     align-items: flex-start;
     text-align: center;
+    margin-bottom: 10px;
 }
 
     div.detail-weather img {
@@ -96,4 +97,25 @@ div.detail-weather {
 div.detail-buttons {
     display: flex;
     justify-content: left;
+}
+
+
+.temp-high {
+    /*background-color: red;*/
+    color: orangered;
+}
+
+.temp-low {
+    /*background-color: blue;*/
+    color: cornflowerblue;
+}
+
+.temps-holder {
+    background-color: ghostwhite;
+}
+
+.weather-container {
+    background-color: whitesmoke;
+    padding: 3px;
+    border-radius: 4%;
 }
