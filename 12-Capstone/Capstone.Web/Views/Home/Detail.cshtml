@@ -6,23 +6,28 @@
 
 }
 
-    <div class="park-detail center-block">
-        <br />
-        <img class="center-block" src="~/images/parks/@(Model.Park.ParkCode).jpg" />@*Pic*@
-        <br />
+<div class="park-detail center-block">
+    <br />
+    <img class="center-block" src="~/images/parks/@(Model.Park.ParkCode).jpg" />@*Pic*@
+    <br />
+    <section class="centeredPanel">
         <h2>@Model.Park.Name</h2>
         <br />
         <p>@Model.Park.Description</p>
-        <br />
+    </section>
+    <br />
+    <section class="centeredPanel">
+
         <h3>Today</h3>
+
         <div class="detail-weather">
             @for (int i = 0; i < 5; i++)
             {
                 <div class="weather-container">
                     @*@if (i == 0)
-                    {
-                        <h3>Today</h3>
-                    }*@
+                        {
+                            <h3>Today</h3>
+                        }*@
                     <img class="img-rounded" src="~/images/weather/@(Model.FiveDay[i].Forecast).png" />
                     @*<p>High: @Model.FiveDay[i].High F</p>*@
                     <div class="temps-holder">
@@ -44,13 +49,13 @@
         </div>
         <div class="detail-buttons">
             @*<form asp-controller="Home" asp-action="Detail" method="get">
-                <label asp-for="temp">Fahrenheit</label>
-                <input type="radio" asp-for="temp"/>
-                <label for="c">Celcius</label>
-                <input type="radio" name="temp" value="c" />
-                <input type="submit" value="Change" />
-                <input type="hidden" asp-route-code="@Model.Park.ParkCode" />
-            </form>*@
+                    <label asp-for="temp">Fahrenheit</label>
+                    <input type="radio" asp-for="temp"/>
+                    <label for="c">Celcius</label>
+                    <input type="radio" name="temp" value="c" />
+                    <input type="submit" value="Change" />
+                    <input type="hidden" asp-route-code="@Model.Park.ParkCode" />
+                </form>*@
             <form style="margin-right:8px" method="post" asp-controller="Home" asp-action="Detail" asp-route-code="@Model.Park.ParkCode" asp-route-temp="f">
                 <input class="btn btn-block" type="submit" value="Fahrenheit" />
             </form>
@@ -58,61 +63,62 @@
                 <input class="btn btn-block" type="submit" value="Celcius" />
             </form>
         </div>
-        <br />
-        <section class="centeredPanel">
-            <table class="table table-bordered">
+    </section>
+    <br />
+    <section class="centeredPanel">
+        <table class="table table-bordered">
 
-                <tbody>
-                    <tr>
-                        <td>State</td>
-                        <td>@Model.Park.State</td>
-                    </tr>
-                    <tr>
-                        <td>Entry Fee</td>
-                        <td>@($"{Model.Park.EntryFee:C}")</td>
-                    </tr>
-                    <tr>
-                        <td>Miles of Trail</td>
-                        <td>@Model.Park.MilesOfTrail</td>
-                    </tr>
-                    <tr>
-                        <td>Number of Campsites</td>
-                        <td>@Model.Park.NumberOfCampsites</td>
-                    </tr>
-                    <tr>
-                        <td>Climate</td>
-                        <td>@Model.Park.Climate</td>
-                    </tr>
-                    <tr>
-                        <td>Annual Visitor Count</td>
-                        <td>@Model.Park.AnnualVisitorCount</td>
-                    </tr>
-                    <tr>
-                        <td>Year Founded</td>
-                        <td>@Model.Park.YearFounded</td>
-                    </tr>
-                    <tr>
-                        <td>Acreage</td>
-                        <td>@Model.Park.Acreage</td>
-                    </tr>
-                    <tr>
-                        <td>Elevation</td>
-                        <td>@Model.Park.Elevation</td>
-                    </tr>
-                    <tr>
-                        <td>Number of Animal Species</td>
-                        <td>@Model.Park.NumberOfAnimalSpecies</td>
-                    </tr>
-                    <tr>
-                        <td>Inspirational Quote</td>
-                        <td>@Model.Park.InspirationalQuote</td>
-                    </tr>
-                    <tr>
-                        <td>Quote Source</td>
-                        <td>@Model.Park.InspirationQuoteSource</td>
-                    </tr>
-                </tbody>
-            </table>
-            </section>
+            <tbody>
+                <tr>
+                    <td>State</td>
+                    <td>@Model.Park.State</td>
+                </tr>
+                <tr>
+                    <td>Entry Fee</td>
+                    <td>@($"{Model.Park.EntryFee:C}")</td>
+                </tr>
+                <tr>
+                    <td>Miles of Trail</td>
+                    <td>@Model.Park.MilesOfTrail</td>
+                </tr>
+                <tr>
+                    <td>Number of Campsites</td>
+                    <td>@Model.Park.NumberOfCampsites</td>
+                </tr>
+                <tr>
+                    <td>Climate</td>
+                    <td>@Model.Park.Climate</td>
+                </tr>
+                <tr>
+                    <td>Annual Visitor Count</td>
+                    <td>@Model.Park.AnnualVisitorCount</td>
+                </tr>
+                <tr>
+                    <td>Year Founded</td>
+                    <td>@Model.Park.YearFounded</td>
+                </tr>
+                <tr>
+                    <td>Acreage</td>
+                    <td>@Model.Park.Acreage</td>
+                </tr>
+                <tr>
+                    <td>Elevation</td>
+                    <td>@Model.Park.Elevation</td>
+                </tr>
+                <tr>
+                    <td>Number of Animal Species</td>
+                    <td>@Model.Park.NumberOfAnimalSpecies</td>
+                </tr>
+                <tr>
+                    <td>Inspirational Quote</td>
+                    <td>@Model.Park.InspirationalQuote</td>
+                </tr>
+                <tr>
+                    <td>Quote Source</td>
+                    <td>@Model.Park.InspirationQuoteSource</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-    </div>
+</div>

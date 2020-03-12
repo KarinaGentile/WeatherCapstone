@@ -131,10 +131,11 @@ section.centeredPanel {
     display: block;
     width: 90%;
     vertical-align: top;
-    min-height: 450px;
+    /*min-height: 450px;*/
     background-color: darkseagreen;
     border-radius: 7px;
     margin: 20px auto;
+    padding: 8px;
 }
 
 footer {
